@@ -20,13 +20,14 @@ class TaskServiceImplTest {
 
     @Test
     void addTask() {
-        Task task = new Task();
-        task.setTaskType(100);
-        task.setPriority(50);
-        task.setParameters("task test".getBytes());
-        task.setExecuteTime(new Date().getTime()+50000);
-        long taskId = taskService.addTask(task);
-        System.out.println(taskId);
+        for (int i = 0; i < 5; i++) {
+            Task task = new Task();
+            task.setTaskType(100);
+            task.setPriority(50);
+            task.setParameters("task test".getBytes());
+            task.setExecuteTime(new Date().getTime()+50000*i);
+            long taskId = taskService.addTask(task);
+        }
     }
     @Test
     public void CancelTest(){
